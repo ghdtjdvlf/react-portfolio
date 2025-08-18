@@ -1,0 +1,211 @@
+@import "pretendard/dist/web/static/pretendard.css";
+
+body {
+  margin: 0;
+  display: block;
+  background: #000;
+  color: aliceblue;
+  word-break: keep-all;
+  font-family: "Pretendard", sans-serif;
+  height: 6000px;
+}
+
+section {
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.sec01 {
+  width: calc(100vw - 20px);
+  position: relative;
+  /* cursor: none; */
+}
+
+.sec02 {
+  height: auto;
+}
+
+.sec02 h2 {
+  font-size: 100px;
+}
+
+
+
+.show {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+/* 나머지 섹션은 기본 커서 */
+/* .sec02 .sec03 {
+  cursor: auto;
+} */
+
+.sec01 .title {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.title p {
+  font-size: 24px;
+}
+
+.h1_span {
+
+  display: inline-block;
+  font-size: 90px;
+}
+
+p.h1_p {
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.sec01_h1 {
+  font-size: 50px;
+
+}
+
+.h1_type {
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.sec02 {
+  height: 1000px;
+  position: relative;
+}
+
+.sec02_about_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sec02_about {
+  font-size: 100px;
+}
+
+.sec02_dec {
+  font-size: 30px;
+}
+
+
+.sec03 {
+  padding: 100px 0;
+  overflow-x: hidden;
+  height: 1000px;
+  position: relative;
+}
+
+.sec03 h2 {
+  font-size: 50px;
+}
+
+.sec03 .title {
+  margin-bottom: 150px;
+}
+
+
+
+.ShapeBlur {
+  transform: translate(0, 100px);
+  z-index: 10;
+}
+
+.reveal_box {}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.sec03-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.tilted-card-demo-text {
+  background: #565656;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.sec04 {
+  position: relative;
+}
+
+.fallingText_container {
+  height: 1800px;
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.skills-grid {
+  padding-top: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.skill-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.skill-badge {
+  margin-left: auto;
+  background: #2d2d2d;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.skill-desc {
+  font-size: 14px;
+  color: #cfcfcf;
+}
