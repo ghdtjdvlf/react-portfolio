@@ -1,8 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import ScrollFloat from "./assets/components/Scroll Float/ScrollFloat";
 import ScrollReveal from "./assets/components/Scroll Reveal/Scroll Reveal.jsx";
 import Galaxy from "./assets/components/Galaxy/Galaxy.jsx";
-import TargetCursor from "./assets/components/TargetCursor/TargetCursor.jsx";
 import TextType from "./assets/components/TextType/TextType.jsx";
 import ShinyText from "./assets/components/ShinyText/ShinyText.jsx";
 import ShapeBlur from "./assets/components/ShapeBlur/ShapeBlur.jsx";
@@ -11,38 +10,39 @@ import ProfileCard from "./assets/components/ProfileCard/ProfileCard.jsx";
 import TiltedCard from "./assets/components/TiltedCard/TiltedCard.jsx";
 import FallingText from "./assets/components/FallingText/FallingText.jsx";
 import CountUp from "./assets/components/CountUp/CountUp.jsx";
-import "./assets/components/TargetCursor/TargetCursor.css";
 import SpotlightCard from "./assets/components/SpotlightCard/SpotlightCard.jsx";
-import skills from "./assets/data.jsx";
+import DecayCard from "./assets/components/DecayCard/DecayCard.jsx";
+import StarBorder from "./assets/components/StarBorder/StarBorder.jsx";
+import ScrollVelocity from "./assets/components/ScrollVelocity/ScrollVelocity.jsx";
+import GlareHover from "./assets/components/GlareHover/GlareHover.jsx";
+import Squares from "./assets/components/Squares/Squares.jsx";
+import Crosshair from "./assets/components/Crosshair/Crosshair.jsx";
+
+import skills from "./assets/skills.jsx";
+import projects from "./assets/projects.jsx";
+import Header from "./assets/components/Header.jsx";
+import Footer from "./assets/components/Footer/Footer.jsx";
+import CardSwap, { Card } from "./assets/components/CardSwap/CardSwap.jsx";
 
 import { ReactLenis } from "lenis/react";
 import "./style.css";
+import { i } from "motion/react-client";
 
 function App() {
-  const [showCursor, setShowCursor] = useState(true);
+  const sec02Ref = useRef(null);
+  const sec06Ref = useRef(null); // 🔥 sec06 영역 참조 추가
+  const handleClick = () => {
+    window.location.href = "/about"; // 내부 페이지
+    // window.location.href = "https://github.com/ghdtjdvlf"; // 외부 링크
+  };
 
   return (
     <>
       <ReactLenis root />
-
-      {/* TargetCursor는 전역에 두고, showCursor로 보이기/숨기기 */}
-      {/* <div className={`${showCursor ? "show" : "hidden"}`}>
-        <TargetCursor spinDuration={2} hideDefaultCursor={false} />
-      </div> */}
-
-      {showCursor ? (
-        <TargetCursor spinDuration={2} hideDefaultCursor={false} />
-      ) : (
-        <></>
-      )}
+      <Header />
 
       {/* sec01 영역 */}
-      <section
-        className="sec01"
-        // ref={sec01Ref}
-        onMouseEnter={() => setShowCursor(true)}
-        onMouseLeave={() => setShowCursor(false)}
-      >
+      <section className="sec01">
         <Galaxy
           mouseRepulsion
           mouseInteraction
@@ -78,31 +78,15 @@ function App() {
               cursorCharacter="|"
             />
           </p>
-          {/* <p>
-            <CountUp
-              from={0}
-              to={365}
-              separator=","
-              direction="up"
-              duration={1.6}
-              className="count-up-text"
-            />
-            일 자동화되는 Web3·AI 엔진으로{" "}
-            <CountUp
-              from={0}
-              to={10}
-              separator=","
-              direction="up"
-              duration={1.6}
-              className="count-up-text"
-            />
-            년 후에도 살아남을 비즈니스를 만드세요
-          </p> */}
         </div>
       </section>
 
       {/* sec02 영역 */}
-      <section className="sec02">
+      <section
+        className="sec02"
+        ref={sec02Ref}
+        style={{ position: "relative" }}
+      >
         <ScrollFloat
           animationDuration={1}
           ease="back.inOut(2)"
@@ -112,12 +96,15 @@ function App() {
         >
           센스 있게, 효율적으로.
         </ScrollFloat>
+
         <div
           style={{ position: "relative", height: "800px", overflow: "hidden" }}
         >
           <ShapeBlur
             variation={0}
-            pixelRatioProp={window.devicePixelRatio || 1}
+            pixelRatioProp={
+              typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1
+            }
             shapeSize={1}
             roundness={0.5}
             borderSize={0.05}
@@ -138,7 +125,7 @@ function App() {
               imageSrc="http://ghdvlftjd.dothome.co.kr/wp-content/themes/supernormal2/img/profile.png"
               altText="Kendrick Lamar - GNX Album Cover"
               captionText="Kendrick Lamar - GNX"
-              containerHeight="400px"
+              containerHeight="auto"
               containerWidth="400px"
               imageHeight="600px"
               imageWidth="400px"
@@ -172,22 +159,9 @@ function App() {
         </div>
       </section>
 
-      {/* sec04 영억 */}
+      {/* sec04 영역 */}
       <section className="sec04">
-        <div className="fallingText_container">
-          <FallingText
-            text={`Photoshop Figma Midjourney Gsap HTML5 CSS3 React SCSS Tailwind Vue StyledComponents JavaScript jQuery Bootstrap5 Wordpress 그누보드 Notion Git`}
-            highlightWords={["React", "Figma", "Vue", "Gsap", "Bootstrap5"]}
-            highlightClass="highlighted"
-            trigger="hover"
-            backgroundColor="transparent"
-            wireframes={false}
-            gravity={0.36}
-            fontSize="2.5rem"
-            mouseConstraintStiffness={0.9}
-          />
-        </div>
-        <div className="container">
+        <div className="s-container">
           <div className="skills-grid">
             {skills.map((s, i) => (
               <SpotlightCard
@@ -207,7 +181,80 @@ function App() {
             ))}
           </div>
         </div>
+        <div className="fallingText_container">
+          <FallingText
+            text={`Photoshop Figma Midjourney Gsap HTML5 CSS3 React SCSS Tailwind Vue StyledComponents JavaScript jQuery Bootstrap5 Wordpress 그누보드 Notion Git`}
+            highlightWords={["React", "Figma", "Vue", "Gsap", "Bootstrap5"]}
+            highlightClass="highlighted"
+            trigger="hover"
+            backgroundColor="transparent"
+            wireframes={false}
+            gravity={0.36}
+            fontSize="2.5rem"
+            mouseConstraintStiffness={0.9}
+          />
+        </div>
       </section>
+
+      {/* sec05 영역 */}
+      <section className="sec05">
+        <div className="container">
+          <div className="project-grid">
+            {projects.map((p, i) => (
+              <GlareHover
+                glareColor="#ffffff"
+                glareOpacity={0.3}
+                glareAngle={-30}
+                glareSize={300}
+                transitionDuration={800}
+                playOnce={false}
+                key={i}
+              >
+                <div className="img">
+                  <img src={p.img} alt="" />
+                </div>
+                <div className="tag-wrap">
+                  {p.tag.map((t, idx) => (
+                    <div className="tag" key={idx}>
+                      {t}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-wrap">
+                  <div className="text-title">
+                    <h2>{p.title}</h2>
+                    <p className="title_tag">{p.titletag}</p>
+                  </div>
+                </div>
+              </GlareHover>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* sec06 영역 */}
+      <section
+        className="sec06"
+        ref={sec06Ref}
+        style={{ position: "relative", height: "500px", overflow: "hidden" }}
+      >
+        <Squares
+          speed={0.5}
+          squareSize={40}
+          direction="" // up, down, left, right, diagonal
+          borderColor="#212121"
+          hoverFillColor="#222"
+        />
+        <div className="container">
+          <div className="aim_container">
+            <h2 onClick={handleClick} style={{ cursor: "pointer" }}></h2>
+          </div>
+        </div>
+
+        {/* 🔥 Crosshair 적용 */}
+        <Crosshair containerRef={sec06Ref} color="#ffffff" />
+      </section>
+      <Footer></Footer>
     </>
   );
 }

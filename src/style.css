@@ -7,23 +7,35 @@ body {
   color: aliceblue;
   word-break: keep-all;
   font-family: "Pretendard", sans-serif;
-  height: 6000px;
+
+
+}
+
+img {
+  width: 100%;
 }
 
 section {
-  text-align: center;
-  height: 100vh;
+
   width: 100%;
+}
+
+.container {
+  width: 1400px;
+  margin: 0 auto;
 }
 
 .sec01 {
   width: calc(100vw - 20px);
   position: relative;
+  height: 100vh;
+  text-align: center;
   /* cursor: none; */
 }
 
 .sec02 {
   height: auto;
+
 }
 
 .sec02 h2 {
@@ -103,10 +115,11 @@ p.h1_p {
 
 
 .sec03 {
-  padding: 100px 0;
+  padding-top: 100px;
   overflow-x: hidden;
   height: 1000px;
   position: relative;
+  text-align: center;
 }
 
 .sec03 h2 {
@@ -117,8 +130,6 @@ p.h1_p {
   margin-bottom: 150px;
 }
 
-
-
 .ShapeBlur {
   transform: translate(0, 100px);
   z-index: 10;
@@ -126,10 +137,7 @@ p.h1_p {
 
 .reveal_box {}
 
-.container {
-  width: 1200px;
-  margin: 0 auto;
-}
+
 
 .sec03-wrap {
   display: grid;
@@ -142,25 +150,35 @@ p.h1_p {
   padding: 10px 20px;
 }
 
+/* sec04 스킬들 */
+
 .sec04 {
   position: relative;
 }
 
+.s-container {
+  width: 1200px;
+  margin: auto;
+}
+
 .fallingText_container {
-  height: 1800px;
+  height: 1900px;
   width: 100%;
   margin: auto;
   position: absolute;
-  top: 75%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .skills-grid {
-  padding-top: 300px;
+  position: relative;
+  padding-top: 200px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  z-index: 2;
 }
 
 @media (max-width: 1024px) {
@@ -188,8 +206,9 @@ p.h1_p {
 }
 
 .skill-icon {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .skill-title {
@@ -208,4 +227,114 @@ p.h1_p {
 .skill-desc {
   font-size: 14px;
   color: #cfcfcf;
+}
+
+.sec05 {
+  position: relative;
+}
+
+.cardswap_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* sec05 - 프로젝트들 */
+
+.sec05 {
+  margin-top: 400px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.GlareHover {
+  padding: 10px 20px;
+  box-sizing: border-box;
+  transition: all .2s;
+}
+
+.img {
+  padding: 10px 0px;
+}
+
+.img img {
+  border-radius: 10px;
+}
+
+.text-title {
+  display: flex;
+  align-items: center;
+}
+
+.text-wrap {
+  width: 100%;
+  text-align: left;
+}
+
+.tag-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  gap: 10px;
+}
+
+.tag {
+  color: #fff;
+  background: #3858e9;
+  border-radius: 20px;
+  padding: 3px 12px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.title_tag {
+  margin-left: 8px;
+
+}
+
+/* sec06 */
+
+.sec06 {
+  padding: 100px 0;
+  position: relative;
+}
+
+.aim_container {
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  height: 500px;
+  position: absolute;
+  z-index: 10;
+}
+
+.Squares {
+  position: absolute;
+}
+
+.sec06 h2 {
+  font-size: 100px;
+}
+
+.sec06 h2::after {
+  content: "홍성필";
+  transition: color .1s;
+}
+
+.sec06 h2:hover::after {
+  content: "더 알아보기";
+  color: magenta;
+  cursor: pointer;
+
 }

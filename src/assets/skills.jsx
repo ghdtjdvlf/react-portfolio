@@ -12,7 +12,7 @@ const skills = [
     desc: "UI 시안 제작과 간단한 프로토타입 작업을 할 수 있습니다.",
   },
   {
-    icon: "http://ghdvlftjd.dothome.co.kr/wp-content/uploads/2025/07/Midjourney.png",
+    icon: "https://cne.askedtech.com/api/kords/admin/organ/image.jpg?id=21204",
     title: "Midjourney",
     badge: "AI",
     desc: "키워드를 활용해 AI·배경 이미지를 생성하고 디자인에 활용해봤습니다.",
@@ -54,7 +54,7 @@ const skills = [
     desc: "변수와 믹스인으로 스타일 코드를 정리해본 경험이 있습니다.",
   },
   {
-    icon: "http://ghdvlftjd.dothome.co.kr/wp-content/uploads/2025/07/Tailwind.png",
+    icon: "https://img.icons8.com/color/512/tailwindcss.png",
     title: "Tailwind",
     badge: "Library",
     desc: "유틸리티 클래스로 빠르게 시안을 구현해봤습니다.",
@@ -104,7 +104,7 @@ const skills = [
     desc: "게시판·회원관리 기능으로 간단한 웹사이트를 제작해본 경험이 있습니다.",
   },
   {
-    icon: "https://cdn-icons-png.flaticon.com/512/1170/1170576.png",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/800px-Notion-logo.svg.png",
     title: "Notion",
     badge: "Collaboration",
     desc: "학습 내용과 작업 기록 정리뿐 아니라 실시간 협업에도 활용할 수 있습니다.",
@@ -116,7 +116,7 @@ const skills = [
     desc: "팀 커뮤니케이션과 협업 도구로 활용한 경험이 있습니다.",
   },
   {
-    icon: "http://ghdvlftjd.dothome.co.kr/wp-content/uploads/2025/07/git.png",
+    icon: "https://img.icons8.com/m_sharp/200/FFFFFF/github.png",
     title: "git",
     badge: "Collaboration",
     desc: "기본 명령어로 버전 관리와 협업 준비를 할 수 있습니다.",
